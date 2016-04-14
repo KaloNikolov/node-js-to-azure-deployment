@@ -4,7 +4,7 @@ info:
   description: "Specification of the CXS Oasis Standard"
   version: "1.0.0"
   title: "CXS REST API"
-host: "http://cxs-api.azurewebsites.net"
+host: "cxs-api.azurewebsites.net"
 basePath: "/v1"
 schemes:
 - "http"
