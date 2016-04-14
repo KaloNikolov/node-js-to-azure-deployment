@@ -1,0 +1,222 @@
+---
+swagger: "2.0"
+info:
+  description: "Specification of the CXS Oasis Standard"
+  version: "1.0.0"
+  title: "CXS REST API"
+host: "knikolov:5000"
+basePath: "/v1"
+schemes:
+- "http"
+produces:
+- "application/json"
+paths:
+  /event/collect/{trackingId}:
+    post:
+      tags:
+      - "Events"
+      summary: "An endpoint for data collection"
+      description: "Collect single or batched events from any client. This endpoint\
+        \ doesn't require any authentication but requires a valid sourceId. \n"
+      operationId: "eventCollectTrackingIdPOST"
+      parameters:
+      - name: "trackingId"
+        in: "path"
+        description: "The unique identifier of the tracker defined in your repository."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "payload"
+        description: "An array of Event objects"
+        required: false
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/CreateEvent"
+      responses:
+        204:
+          description: "No response returned in order to optimize perfromance"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Events"
+  /profile:
+    get:
+      tags:
+      - "Profile"
+      summary: "Profiles"
+      description: "Access all profiles.\n"
+      operationId: "profileGET"
+      parameters:
+      - name: "query"
+        in: "query"
+        description: "Valid query string"
+        required: false
+        type: "string"
+        format: "TBD"
+      - name: "properties"
+        in: "query"
+        description: "Specify the properties to be returned, use * to return all.\
+          \ If not specified profile ids will be returned"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      - name: "pageSize"
+        in: "query"
+        description: "Number of items to be returned"
+        required: false
+        type: "number"
+        format: "short"
+      - name: "offset"
+        in: "query"
+        description: "Specify property to order by"
+        required: false
+        type: "string"
+        format: "propertyname ASC|DESC"
+      - name: "orderBy"
+        in: "query"
+        description: "Specify property to order by"
+        required: false
+        type: "string"
+        format: "propertyname ASC|DESC"
+      responses:
+        200:
+          description: "An array of profiles"
+          schema:
+            type: "object"
+            properties: {}
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Profiles"
+  /profile/{profileId}:
+    get:
+      tags:
+      - "Profile"
+      summary: "Get explicit profile"
+      description: "Access a specific profile."
+      operationId: "profileProfileIdGET"
+      parameters:
+      - name: "profileId"
+        in: "path"
+        description: "Specify the profiles unique ID"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "A single profile"
+          schema:
+            type: "object"
+            properties: {}
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Profile"
+definitions:
+  ProfileResult:
+    type: "object"
+    properties:
+      total:
+        type: "number"
+        format: "long"
+        description: "Total number of profiles matching this query"
+      offset:
+        type: "number"
+        format: "long"
+        description: "The requested offset in number of items, starting at 0"
+      pageSize:
+        type: "number"
+        format: "short"
+        description: "Requested number of items to be returned"
+      hits:
+        type: "array"
+        description: "Query result"
+        items:
+          $ref: "#/definitions/Profile"
+  Profile:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+        format: "uuid"
+    additionalProperties:
+      type: "object"
+      properties: {}
+  CreateEvent:
+    type: "object"
+    required:
+    - "_eventType"
+    - "_profileId"
+    - "_target"
+    properties:
+      _eventType:
+        type: "string"
+        description: "the type of the current event"
+      _target:
+        type: "string"
+        description: "The item/object the user interacted with"
+      _profileId:
+        type: "string"
+      _timestamp:
+        type: "string"
+        format: "date-time"
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+      fields:
+        type: "string"
+parameters:
+  trackingId:
+    name: "trackingId"
+    in: "path"
+    description: "The unique identifier of the tracker defined in your repository."
+    required: true
+    type: "string"
+  query:
+    name: "query"
+    in: "query"
+    description: "Valid query string"
+    required: false
+    type: "string"
+    format: "TBD"
+  properties:
+    name: "properties"
+    in: "query"
+    description: "Specify the properties to be returned, use * to return all. If not\
+      \ specified profile ids will be returned"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "multi"
+  pageSize:
+    name: "pageSize"
+    in: "query"
+    description: "Number of items to be returned"
+    required: false
+    type: "number"
+    format: "short"
+  offset:
+    name: "offset"
+    in: "query"
+    description: "Specify property to order by"
+    required: false
+    type: "string"
+    format: "propertyname ASC|DESC"
+  orderBy:
+    name: "orderBy"
+    in: "query"
+    description: "Specify property to order by"
+    required: false
+    type: "string"
+    format: "propertyname ASC|DESC"
