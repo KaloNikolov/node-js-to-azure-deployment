@@ -86,8 +86,7 @@ paths:
         200:
           description: "An array of profiles"
           schema:
-            type: "object"
-            properties: {}
+            $ref: "#/definitions/ProfileResult"
           examples:
             application/json:
               total: 2000
@@ -120,8 +119,7 @@ paths:
         200:
           description: "A single profile"
           schema:
-            type: "object"
-            properties: {}
+            $ref: "#/definitions/Profile"
           examples:
             application/json:
               _id: 1
