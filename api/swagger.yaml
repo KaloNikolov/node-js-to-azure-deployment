@@ -88,11 +88,21 @@ paths:
           schema:
             type: "object"
             properties: {}
+          examples:
+            application/json:
+              total: 2000
+              offset: 0
+              pageSize: 2
+              hits:
+              - _id: 1
+                firstName: "Novak"
+              - _id: 2
+                firstName: "Grigor"
         default:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Profiles"
+      x-swagger-router-controller: "Profile"
   /profile/{profileId}:
     get:
       tags:
@@ -112,6 +122,10 @@ paths:
           schema:
             type: "object"
             properties: {}
+          examples:
+            application/json:
+              _id: 1
+              firstName: "Novak"
         default:
           description: "Unexpected error"
           schema:

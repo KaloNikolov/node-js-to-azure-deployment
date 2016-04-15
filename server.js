@@ -20,7 +20,7 @@ app.use(function(req, res, next){
     res.end();
   }
   else {
-    next(); 
+    next();
   }
 });
 
@@ -34,6 +34,9 @@ var options = {
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
 var spec = fs.readFileSync('./api/swagger.yaml', 'utf8');
 var swaggerDoc = jsyaml.safeLoad(spec);
+if(typeof process.env.PORT === "undefined"){
+  swaggerDoc.host = 'localhost:' + serverPort;
+}
 
 // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
