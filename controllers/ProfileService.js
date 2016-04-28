@@ -9,7 +9,9 @@ exports.profileGET = function(args, res, next) {
   * offset (String)
   * orderBy (String)
   **/
-    var examples = {};
+  
+  
+  var examples = {};
   examples['application/json'] = {
   "total" : 2000,
   "offset" : 0,
@@ -22,6 +24,7 @@ exports.profileGET = function(args, res, next) {
     "firstName" : "Grigor"
   } ]
 };
+  
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
@@ -30,6 +33,7 @@ exports.profileGET = function(args, res, next) {
     res.end();
   }
   
+  
 }
 
 exports.profileProfileIdGET = function(args, res, next) {
@@ -37,11 +41,14 @@ exports.profileProfileIdGET = function(args, res, next) {
    * parameters expected in the args:
   * profileId (String)
   **/
-    var examples = {};
+  
+  
+  var examples = {};
   examples['application/json'] = {
   "_id" : 1,
   "firstName" : "Novak"
 };
+  
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
@@ -49,6 +56,7 @@ exports.profileProfileIdGET = function(args, res, next) {
   else {
     res.end();
   }
+  
   
 }
 
