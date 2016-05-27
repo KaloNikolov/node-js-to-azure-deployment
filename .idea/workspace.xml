@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8a6943e6-8e14-4f27-b7fb-402d4dcb43b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/swagger.yaml" afterPath="$PROJECT_DIR$/api/swagger.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/EventsService.js" afterPath="$PROJECT_DIR$/controllers/EventsService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ProfileService.js" afterPath="$PROJECT_DIR$/controllers/ProfileService.js" />
     </list>
     <ignored path="nodejs-server-server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -306,7 +303,7 @@
       <workItem from="1460625452233" duration="4389000" />
       <workItem from="1460642592937" duration="9992000" />
       <workItem from="1460718261454" duration="2943000" />
-      <workItem from="1461840999645" duration="72000" />
+      <workItem from="1461840999645" duration="156000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1460644046833</created>
@@ -378,11 +375,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460719289516</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="new definition of the Collect events payload">
+      <created>1461841106903</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1461841106903</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17396000" />
+    <option name="totallyTimeSpent" value="17480000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
@@ -391,7 +395,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2557298" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32853982" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -428,7 +432,8 @@
     <MESSAGE value="removed the protocol from the host" />
     <MESSAGE value="Added examples for the 2 GET endpoints" />
     <MESSAGE value="Fixed issues with Reponse Models for GETs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issues with Reponse Models for GETs" />
+    <MESSAGE value="new definition of the Collect events payload" />
+    <option name="LAST_COMMIT_MESSAGE" value="new definition of the Collect events payload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
